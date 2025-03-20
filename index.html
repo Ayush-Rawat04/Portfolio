@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+  
+  <!-- Montserrat Bold -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+        background-color: #000000; /* Dark background for hero */
+        color: #000;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+    }
+
+    /* Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background-color: #ffce00; /* Bright gold */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 999;
+    }
+
+    .logo a {
+      font-size: 24px;
+      text-decoration: none;
+      color: #000;
+    }
+
+    /* Navigation Links */
+    .nav-links {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links li {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .nav-links li:hover {
+      color: #555;
+    }
+
+    /* Assignment/Resume Button */
+    .assignment-btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #000;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .assignment-btn:hover {
+      background-color: #333;
+    }
+
+    /* Hero Section */
+    .Hero {
+      background-color: #1a1a1a; /* Dark background for hero */
+      min-height: calc(100vh - 70px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 90px 5% 40px; /* Top padding ensures content isn’t hidden behind the nav */
+      position: relative;
+      color: #fff;
+    }
+
+    /* Left: Hero Text */
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-text p {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .hero-text h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #ffce00; /* Gold accent for profession */
+    }
+
+    /* Social Links */
+    .social-links {
+      display: flex;
+      gap: 20px;
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #ffce00;
+    }
+
+    /* Right: Hero Image */
+    .hero-image {
+      position: absolute;
+      bottom: 0px;
+      right: 1%;
+    }
+    .hero-image img {
+      max-height: 180px;
+      display: block;
+      border-radius: 10px;
+      transform: scale(3);
+      transform-origin: bottom right;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo"><a href="index.html">AR</a></div>
+    <ul class="nav-links">
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="week1.html">Week-1</a></li>
+      <li><a href="week2.html">Week-2</a></li>
+      <li><a href="week3.html">Week-3</a></li>
+      <li><a href="week4.html">Week-4</a></li>
+      <li><a href="week5.html">Week-5</a></li>
+      <li><a href="assignment.html"><button class="assignment-btn">Assignment</button></a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="Hero">
+    <!-- Left: Text -->
+    <div class="hero-text">
+      <p>Hi, I am</p>
+      <h1>Ayush Rawat</h1>
+      <h2>Full Stack Web Developer</h2>
+      <!-- Social Links -->
+      <div class="social-links">
+        <a href="https://github.com/Ayush-Rawat04" target="_blank">GitHub</a>
+        <a href="mailto:right2ayushrawat@gmail.com" target="_blank">Email</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+    <!-- Right: Image -->
+    <div class="hero-image">
+      <img src="download.png" alt="My Picture" />
+    </div>
+  </div>
+
+</body>
+</html>

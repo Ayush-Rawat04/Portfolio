@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Week-5 | Group Discussion</title>
+  
+  <!-- Montserrat Bold -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+    
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      background-color: #656565;
+      color: #000;
+    }
+    
+    /* Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background-color: #ffce00;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 999;
+    }
+    
+    .logo {
+      font-size: 24px;
+    }
+    
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    
+    .nav-links li {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    
+    .nav-links li a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .nav-links li:hover {
+      color: #555;
+    }
+    
+    .assignment-btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #000;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .assignment-btn:hover {
+      background-color: #333;
+    }
+    
+    /* Hero Section */
+    .Hero {
+      background-color: #1a1a1a;
+      min-height: calc(100vh - 70px);
+      padding: 90px 5% 40px;
+      color: #fff;
+    }
+    
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .hero-content h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #ddd;
+      font-weight: normal;
+    }
+    
+    /* Key Learnings Container */
+    .learnings-container {
+      background-color: #333;
+      padding: 20px;
+      border: 2px solid #ffce00;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .learnings-container ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+    .learnings-container li {
+      margin-bottom: 8px;
+      color: #ddd;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">AR</a></div>
+    <ul class="nav-links">
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="week1.html">Week-1</a></li>
+      <li><a href="week2.html">Week-2</a></li>
+      <li><a href="week3.html">Week-3</a></li>
+      <li><a href="week4.html">Week-4</a></li>
+      <li><a href="week5.html">Week-5</a></li>
+      <li>
+        <a href="assignment.html">
+          <button class="assignment-btn">Assignment</button>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  
+  <div class="Hero">
+    <div class="hero-content">
+      <h1>Week-5: Group Discussion</h1>
+      <p>Sharing  my key learnings from the group discussion below.</p>
+  
+      <div class="learnings-container">
+        <p><strong>Key Learnings:</strong></p>
+        <ul>
+          <li><strong>Collaborative Reflection:</strong> Analyze and synthesize key takeaways from group discussions to appreciate diverse perspectives.</li>
+          <li><strong>Develop Critical Listening Skills:</strong> Enhance your ability to listen actively and extract meaningful insights from dialogue.</li>
+          <li><strong>Enhance Teamwork:</strong> Reflect on your contributions and learn strategies for effective collaboration within a team.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
