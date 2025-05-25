@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayush Rawat - Portfolio</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #000000; /* Overall page background */
+      color: #000; /* Default browser text color, overridden by sections */
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+    }
+
+    /* Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background-color: #ffce00; /* Bright gold */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 999;
+    }
+
+    .logo a {
+      font-size: 24px;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .nav-links {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      gap: 20px; /* Adjusted default gap */
+    }
+
+    .nav-links li {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: inherit;
+      font-size: 0.95em; /* Slightly adjust for more items */
+    }
+
+    .nav-links li:hover {
+      color: #555;
+    }
+
+    .assignment-btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #000;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-family: 'Montserrat', sans-serif; /* Ensure font consistency */
+      font-weight: bold;
+      font-size: 0.9em; /* Match link size */
+    }
+
+    .assignment-btn:hover {
+      background-color: #333;
+    }
+
+    /* Hamburger Menu */
+    .nav-toggle {
+      display: none;
+    }
+
+    .nav-toggle-label {
+      display: none;
+      cursor: pointer;
+      width: 30px;
+      height: 25px;
+      position: relative;
+    }
+
+    .nav-toggle-label span,
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+      display: block;
+      background-color: #000;
+      height: 3px;
+      width: 100%;
+      border-radius: 2px;
+      position: absolute;
+      transition: all 0.3s ease;
+    }
+
+    .nav-toggle-label span {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .nav-toggle-label span::before {
+      content: '';
+      top: -8px;
+    }
+
+    .nav-toggle-label span::after {
+      content: '';
+      top: 8px;
+    }
+
+    /* General Section Styling */
+    section {
+      padding-top: 70px; /* Offset for fixed navbar */
+      min-height: 100vh; /* Make each section act like a page */
+      background-color: #1a1a1a; /* Default dark background for all content sections */
+      color: #fff; /* Default text color for sections */
+      padding-left: 5%;
+      padding-right: 5%;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #333; /* Optional: separator between sections */
+    }
+
+    section:last-of-type {
+        border-bottom: none;
+    }
+
+    /* Home Section (Original Landing Page Hero) */
+    #home {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative; /* For hero-image positioning */
+    }
+
+    #home .hero-text-container { /* Replaces .hero-text */
+      max-width: 600px;
+    }
+
+    #home .hero-text-container p {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    #home .hero-text-container h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    #home .hero-text-container h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #ffce00; /* Gold accent for profession */
+    }
+
+    #home .social-links {
+      display: flex;
+      gap: 20px;
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    #home .social-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    #home .social-links a:hover {
+      color: #ffce00;
+    }
+
+    #home .hero-image-container { /* Replaces .hero-image */
+      position: absolute;
+      bottom: 0px;
+      right: 1%;
+    }
+    #home .hero-image-container img {
+      max-height: 180px;
+      display: block;
+      border-radius: 10px;
+      transform: scale(3);
+      transform-origin: bottom right;
+    }
+
+    /* Common styling for .hero-content in Week1-FinalVideo sections */
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-content h1 { /* Title of the "page" e.g., "Week-1: Sixer Intro" */
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero-content h2 { /* Sub-headings like "Learning Outcomes" */
+        font-size: 24px;
+        margin-top: 30px; /* Space before sub-heading */
+        margin-bottom: 15px;
+        color: #ffce00;
+    }
+
+    .hero-content p { /* General paragraph text */
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #ddd;
+      font-weight: normal;
+      line-height: 1.6;
+    }
+
+    /* Specific element styles (video, lists, text boxes etc.) */
+    .video-container {
+      margin-bottom: 20px;
+    }
+    video {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #ffce00;
+      border-radius: 5px;
+      display: block;
+    }
+
+    .learning-outcomes { /* Also used for other lists in content-container */
+      margin-top: 10px; /* Adjusted from 20px as h2 has margin-bottom */
+      padding-left: 20px;
+      list-style-position: inside;
+    }
+    .learning-outcomes li {
+      margin-bottom: 8px;
+      color: #ddd;
+      line-height: 1.5;
+      font-weight: normal;
+    }
+    .learning-outcomes li strong {
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .intro-text {
+      margin-bottom: 20px;
+      background-color: #444;
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid #ffce00;
+      font-size: 16px;
+      color: #fff;
+      line-height: 1.6;
+      font-weight: normal;
+    }
+
+    .resume-container {
+      margin-bottom: 20px;
+      background-color: #333;
+      border: 2px solid #ffce00;
+      border-radius: 5px;
+      padding: 20px;
+    }
+    .resume-container p { /* Specifically for p inside resume-container */
+        font-weight: normal;
+        color: #fff;
+        margin-bottom: 10px;
+    }
+    .resume-container a {
+      color: #ffce00;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    .resume-container a:hover {
+        color: #fff;
+    }
+
+    .learnings-container, .content-container { /* For Week5, Group Discussion */
+      background-color: #333;
+      padding: 20px;
+      border: 2px solid #ffce00;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .learnings-container p:first-child, .content-container p.title { /* For the "Key Learnings:" or "Discussion Summary:" title */
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 10px;
+        font-size: 18px; /* Match hero-content p */
+    }
+    /* ul and li inside these containers will use .learning-outcomes styles by default if applicable */
+
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 992px) { /* Tablet */
+        .nav-links {
+            gap: 15px;
+        }
+         .nav-links li a, .assignment-btn {
+            font-size: 0.85em; /* Further adjust for more items */
+        }
+
+        #home .hero-text-container h1 { font-size: 40px; }
+        #home .hero-text-container p, #home .hero-text-container h2 { font-size: 20px; }
+        #home .hero-image-container img { transform: scale(2.5); max-height: 150px; }
+
+        .hero-content h1 { font-size: 32px; }
+        .hero-content h2 { font-size: 22px; }
+        .hero-content p { font-size: 17px; }
+    }
+
+    @media (max-width: 768px) { /* Mobile */
+      nav {
+        padding: 0 3%;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #ffce00;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        padding: 10px 0;
+        align-items: center;
+      }
+      .nav-links li {
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+      }
+       .nav-links li a {
+         display: block;
+         padding: 10px 0;
+         font-size: 1em; /* Reset for mobile menu */
+       }
+      .assignment-btn {
+        width: auto;
+        padding: 10px 20px;
+        font-size: 1em; /* Reset for mobile menu */
+      }
+      .nav-toggle-label {
+        display: block;
+      }
+      .nav-toggle:checked ~ .nav-links {
+        display: flex;
+      }
+      .nav-toggle:checked ~ .nav-toggle-label span { background-color: transparent; }
+      .nav-toggle:checked ~ .nav-toggle-label span::before { transform: rotate(45deg); top: 0; }
+      .nav-toggle:checked ~ .nav-toggle-label span::after { transform: rotate(-45deg); top: 0; }
+
+      section, #home {
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-bottom: 30px;
+      }
+
+      #home {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 70px; /* Ensure nav offset */
+      }
+      #home .hero-text-container {
+        max-width: 100%;
+        margin-bottom: 30px;
+        order: 1;
+      }
+      #home .hero-text-container p { font-size: 20px; }
+      #home .hero-text-container h1 { font-size: 36px; }
+      #home .hero-text-container h2 { font-size: 20px; }
+      #home .social-links { justify-content: center; font-size: 20px; }
+      #home .hero-image-container {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+        order: 2;
+      }
+      #home .hero-image-container img {
+        transform: scale(1.5);
+        max-height: 150px;
+        max-width: 70%;
+        height: auto;
+        display: inline-block;
+        transform-origin: center bottom;
+      }
+
+      .hero-content h1 { font-size: 28px; }
+      .hero-content h2 { font-size: 20px; }
+      .hero-content p { font-size: 16px; }
+      .intro-text,
+      .resume-container p, .resume-container a,
+      .learnings-container p:first-child, .content-container p.title {
+        font-size: 15px;
+      }
+      .learning-outcomes li { font-size: 15px; }
+      .video-container { margin-bottom: 15px; }
+      video { border-width: 1px; }
+      .learning-outcomes,
+      .learnings-container ul, .content-container ul { padding-left: 0; } /* Remove padding if list-style-position: inside */
+      .intro-text, .resume-container, .learnings-container, .content-container { padding: 15px; }
+    }
+
+    @media (max-width: 480px) { /* Smaller mobile screens */
+        .logo a { font-size: 20px; }
+        .nav-links li a { font-size: 14px; }
+        .assignment-btn { padding: 6px 12px; font-size: 14px; }
+
+        section, #home {
+            padding-left: 2%;
+            padding-right: 2%;
+            padding-bottom: 20px;
+        }
+
+        #home .hero-text-container h1 { font-size: 30px; }
+        #home .hero-text-container p, #home .hero-text-container h2 { font-size: 18px; }
+        #home .social-links { font-size: 18px; gap: 15px; }
+        #home .hero-image-container img { transform: scale(1.2); max-height: 120px; }
+
+        .hero-content h1 { font-size: 24px; }
+        .hero-content h2 { font-size: 18px; }
+        .hero-content p { font-size: 14px; }
+        .intro-text,
+        .resume-container p, .resume-container a,
+        .learnings-container p:first-child, .content-container p.title {
+            font-size: 14px;
+        }
+        .learning-outcomes li { font-size: 14px; }
+        .intro-text, .resume-container, .learnings-container, .content-container { padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <div class="logo"><a href="#home">AR</a></div>
+    <ul class="nav-links">
+      <li><a href="about.html">About Me</a></li> <!-- Stays external as per current setup -->
+      <li><a href="#week1">Week-1</a></li>
+      <li><a href="#week2">Week-2</a></li>
+      <li><a href="#week3">Week-3</a></li>
+      <li><a href="#week4">Week-4</a></li>
+      <li><a href="#week5">Week-5</a></li>
+      <li><a href="#group_discussion">Group Discussion</a></li>
+      <li><a href="#personal_interview">Personal Interview</a></li>
+      <li><a href="#final_video">Final Video</a></li>
+      <li><a href="assignment.html"><button class="assignment-btn">Assignment</button></a></li> <!-- Stays external -->
+    </ul>
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+    </label>
+  </nav>
+
+  <!-- Home Section (Main Landing Hero) -->
+  <section id="home">
+    <div class="hero-text-container">
+      <p>Hi, I am</p>
+      <h1>Ayush Rawat</h1>
+      <h2>Full Stack Web Developer</h2>
+      <div class="social-links">
+        <a href="https://github.com/Ayush-Rawat04" target="_blank">GitHub</a>
+        <a href="mailto:right2ayushrawat@gmail.com" target="_blank">Email</a>
+        <a href="#">LinkedIn</a> <!-- Add actual LinkedIn URL -->
+      </div>
+    </div>
+    <div class="hero-image-container">
+      <img src="download.png" alt="My Picture" /> <!-- Ensure image path is correct -->
+    </div>
+  </section>
+
+  <!-- Week 1 Section -->
+  <section id="week1">
+    <div class="hero-content">
+      <h1>Week-1: Sixer Intro</h1>
+      <p>My Sixer introduction video and with the learning outcomes below.</p>
+      <div class="video-container">
+        <video controls>
+          <source src="sixer.mp4" type="video/mp4"> <!-- Ensure video path is correct -->
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <h2>Learning Outcomes</h2>
+      <ul class="learning-outcomes">
+        <li><strong>Enhance Presentation Skills:</strong> Create an engaging, concise video introduction that captures your personality and background.</li>
+        <li><strong>Clarify Personal Goals:</strong> Reflect on and articulate your primary objectives to set the stage for future learning.</li>
+        <li><strong>Boost Technical Confidence:</strong> Improve familiarity with recording and basic video editing techniques for digital self-presentation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Week 2 Section -->
+  <section id="week2">
+    <div class="hero-content">
+      <h1>Week-2: Five-Step Intro</h1>
+      <p> My Five-Step Intro video and also includes the learning outcomes below.</p>
+      <div class="video-container">
+        <video controls>
+          <source src="five.mp4" type="video/mp4"> <!-- Ensure video path is correct -->
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <h2>Learning Outcomes</h2>
+      <ul class="learning-outcomes">
+        <li><strong>Structure Your Narrative:</strong> Break down your introduction into clear, sequential steps to effectively organize your thoughts.</li>
+        <li><strong>Refine Communication Techniques:</strong> Enhance your storytelling skills by focusing on clarity and logical progression in your video presentation.</li>
+        <li><strong>Increase Self-Awareness:</strong> Identify and highlight key aspects of your identity, fostering deeper personal and professional insight.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Week 3 Section -->
+  <section id="week3">
+    <div class="hero-content">
+      <h1>Week-3: 25-Word Intro</h1>
+      <p>My 25-word introduction below and have listed learning outcomes.</p>
+      <div class="intro-text">
+        I am Ayush Rawat, a full stack web developer who fuses creativity with technology to build innovative, user-friendly digital experiences and transform ideas into reality.
+      </div>
+      <h2>Learning Outcomes</h2>
+      <ul class="learning-outcomes">
+        <li><strong>Practice Brevity:</strong> Master concise communication by distilling your identity into 25 impactful words.</li>
+        <li><strong>Improve Editing Skills:</strong> Revise your text to achieve clarity and impact within a limited word count.</li>
+        <li><strong>Enhance Precision in Language:</strong> Choose every word carefully to ensure each contributes to your overall message.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Week 4 Section -->
+  <section id="week4">
+    <div class="hero-content">
+      <h1>Week-4: Resume</h1>
+      <p>Upload your resume below and list your learning outcomes.</p>
+      <div class="resume-container">
+        <p><strong>My Resume:</strong></p>
+        <a href="https://drive.google.com/file/d/1UcBdPqKkNMRAGyF74DxSjCTVxMzHGjEr/view?usp=drive_link" target="_blank">Download/ View Resume (PDF)</a>
+      </div>
+      <h2>Learning Outcomes</h2>
+      <ul class="learning-outcomes">
+        <li><strong>Showcase Professionalism:</strong> Present your skills, experiences, and achievements in a clear, professional format.</li>
+        <li><strong>Self-Assessment:</strong> Reflect on your career journey to identify strengths and areas for growth.</li>
+        <li><strong>Digital Portfolio Integration:</strong> Learn to integrate your resume within your digital portfolio to enhance your personal brand.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Week 5 Section -->
+  <section id="week5">
+    <div class="hero-content">
+      <h1>Week-5: Group Discussion Reflections</h1> <!-- Title made more specific -->
+      <p>Sharing my key learnings from a group discussion experience below.</p>
+      <div class="learnings-container"> <!-- Using learnings-container for consistency -->
+        <p><strong>Key Learnings from Group Discussion:</strong></p>
+        <ul>
+          <li><strong>Collaborative Reflection:</strong> Analyze and synthesize key takeaways from group discussions to appreciate diverse perspectives.</li>
+          <li><strong>Develop Critical Listening Skills:</strong> Enhance your ability to listen actively and extract meaningful insights from dialogue.</li>
+          <li><strong>Enhance Teamwork:</strong> Reflect on your contributions and learn strategies for effective collaboration within a team.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Group Discussion Section -->
+  <section id="group_discussion">
+    <div class="hero-content">
+      <h1>Group Discussion Experience</h1>
+      <p>Reflecting on a key group discussion, its dynamics, and personal contributions.</p>
+      <div class="content-container">
+        <video controls><source src="gd_final.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+      </div>
+      <h2>Learning Outcomes</h2>
+      <ul class="learning-outcomes">
+        <li><strong>Effective Communication:</strong> Practiced articulating ideas clearly and persuasively within a group.</li>
+        <li><strong>Active Listening:</strong> Developed skills in understanding and responding thoughtfully to diverse viewpoints.</li>
+        <li><strong>Collaborative Problem-Solving:</strong> Contributed to reaching a consensus or exploring a topic comprehensively as a team.</li>
+        <li><strong>Constructive Feedback:</strong> Learned to provide and receive feedback in a professional manner.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Personal Interview Section -->
+  <section id="personal_interview">
+    <div class="hero-content">
+      <h1>Personal Interview Experience</h1>
+      <p>This page can showcase a mock personal interview video or key reflections from an interview experience.</p>
+      <div class="video-container">
+        <video controls>
+          <source src="sixer.mp4" type="video/mp4"> <!-- Replace with your actual video file -->
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <h2>Learning Outcomes</h2>
+      <ul class="learning-outcomes">
+        <li><strong>Professional Self-Presentation:</strong> Practiced presenting skills, experiences, and career goals in a professional interview setting.</li>
+        <li><strong>Behavioral Question Response:</strong> Developed strategies for effectively answering common behavioral interview questions using frameworks like STAR.</li>
+        <li><strong>Communication Clarity:</strong> Enhanced ability to articulate thoughts concisely and confidently.</li>
+        <li><strong>Handling Q&A:</strong> Gained experience in asking insightful questions and responding to interviewer queries.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Final Video Section -->
+  <section id="final_video">
+    <div class="hero-content">
+      <h1>Final Video Presentation</h1>
+      <p>This page hosts the final video presentation, summarizing the journey, key projects, or overall learnings.</p>
+      <div class="video-container">
+        <video controls>
+          <source src="final_presentation_video.mp4" type="video/mp4"> <!-- Replace with your actual video file -->
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <h2>Learning Outcomes</h2>
+      <ul class="learning-outcomes">
+        <li><strong>Comprehensive Summation:</strong> Ability to synthesize and present a large body of work or learning experience concisely.</li>
+        <li><strong>Advanced Presentation Skills:</strong> Showcased refined presentation delivery, including pacing, clarity, and engagement.</li>
+        <li><strong>Visual Storytelling:</strong> Effectively used visual aids or video editing to enhance the message.</li>
+        <li><strong>Professional Closure:</strong> Concluded the portfolio or project with a strong, memorable final statement.</li>
+      </ul>
+    </div>
+  </section>
+
+</body>
+</html>
